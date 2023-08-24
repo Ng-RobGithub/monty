@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 push 1
 pint
 push 2
