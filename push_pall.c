@@ -1,34 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "monty.h"
 
 /**
- * push - Function to push an element onto the stack
- * @stack: Pointer to the stack
- * @n: The value to push onto the stack
+ * push - Pushes an element onto the stack.
+ * @stack: Double pointer to the stack.
+ * @line_number: Line number of the instruction in the file.
+ * @n: Value to push onto the stack.
  */
-void push(stack_t **stack, int n)
+void push(stack_t **stack, unsigned int line_number, int n)
 {
-	stack_t *new_node = malloc(sizeof(stack_t));
+	stack_t *new_node;
 
-	if (!new_node)
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "L%d:Error: malloc failed\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
 	new_node->n = n;
+	new_node->prev = NULL;
 	new_node->next = *stack;
+
+	if (*stack != NULL)
+		(*stack)->prev = new_node;
+
 	*stack = new_node;
 }
 
 /**
- * pall - Function to print all elements in the stack
- * @stack: Pointer to the stack
+ * pall - Prints all the values on the stack.
+ * @stack: Double pointer to the stack.
+ * @line_number: Line number of the instruction in the file.
  */
-void pall(stack_t **stack)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 
-	while (current)
+	(void)line_number;
+
+	while (current != NULL)
 	{
 		printf("%d\n", current->n);
 		current = current->next;
