@@ -15,10 +15,15 @@
 int main(int argc, char *argv[])
 {
 	FILE *file;
+	/*data_t data;*/ /* Declare the data variable */
 	/*char *content; */
 	/*ssize_t size = 0; */
-	/*stack_t *stack = NULL; */
+	/*stack_t my_stack; */
+
 	/*unsigned int line_number = 0; */
+
+	/*stack(&my_stack, line_number, &data);*/
+	/*queue(&my_stack, line_number, &data);*/
 
 	if (argc != 2)
 	{
@@ -32,6 +37,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		return (EXIT_FAILURE);
 	}
+	/*my_stack = NULL; */
 
 	/*init_stack(void); */ /* Initialize the stack */
 	/*parse_file(file);*/ /*Parse the input file */

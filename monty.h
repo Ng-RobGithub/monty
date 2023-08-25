@@ -42,6 +42,15 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct data_s - A structure representing the data mode of the stack.
+ * @queue_mode: An indicator for the queue mode (0: stack, 1: queue).
+ */
+typedef struct data_s
+{
+	int queue_mode; /* Add this line to store the mode */
+} data_t;
+
 /* Function Prototypes */
 
 /* Stack Operations */
