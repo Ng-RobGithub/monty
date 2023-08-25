@@ -17,8 +17,8 @@ int main(int argc, char *argv[])
 	FILE *file;
 	/*char *content; */
 	/*ssize_t size = 0; */
-	/* stack_t *stack = NULL; */
-	/* unsigned int counter = 0; */
+	/*stack_t *stack = NULL; */
+	/*unsigned int line_number = 0; */
 
 	if (argc != 2)
 	{
